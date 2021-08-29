@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom"
 
 
 function Welcome() {
@@ -11,9 +12,9 @@ function Welcome() {
            <br />when it comes to gears.</p>
            <div className="buttons">
             <span>Existing User ?</span><br />
-            <button>Login</button><br />
+            <Link to='/login'>Login</Link><br />
             <span>New Here ?</span><br />
-            <button>Register</button>
+            <Link to='/login'>Register</Link>
            </div>
 
         </div>

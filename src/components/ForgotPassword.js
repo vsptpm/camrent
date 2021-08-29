@@ -1,25 +1,26 @@
 import React, { useRef, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
-import { Link, useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-function Register() {
+function ForgotPassword() {
     const emailRef = useRef()
-    const passwordRef = useRef()
-    const { login } = useAuth()
+    const { resetPassword } = useAuth()
     const [error, setError] = useState('')
+    const [message, setMessage] = useState('')
     const [loading, setLoading] = useState(false)
-    const history = useHistory()
+
 
     async function handleSubmit(e) {
         e.preventDefault()
 
         try {
           setError("")
+          setMessage('')
           setLoading(true)
-          await login(emailRef.current.value, passwordRef.current.value)
-          history.push("/dashboard")
+          await resetPassword(emailRef.current.value)
+          setMessage("Check your inbox for further instructions")
         } catch {
-          setError("Failed to Login in")
+          setError("Failed to reset password ")
         }
     
         setLoading(false)
@@ -28,18 +29,17 @@ function Register() {
     return (
         <div>
             <div >
-            <h3>Login</h3>
+            <h3>Reset password</h3>
             <div className="LoginInput">
                 {error && <p>{error}</p>}
+                {message && <p>{message}</p>}
                 <form onSubmit = {handleSubmit}>
                 <span>Email</span><br />
                 <input placeholder="Enter email" id="email" ref={emailRef} type="text"></input><br /> 
-                <span>Password</span><br />
-                <input placeholder="Enter password" id="password" ref={passwordRef} type="password"></input><br />
-        
-                <button disabled = {loading} type="submit">Log In</button>
+    
+                <button disabled = {loading} type="submit">Reset Password</button>
                 </form>
-                <Link to="/forgot-password">Forgot Password?</Link><br></br>
+                <Link to="/login">Log In</Link><br></br>
                 Need an account? <Link to="/register">Register Here</Link>
                 
             </div>
@@ -48,4 +48,4 @@ function Register() {
     )
 }
 
-export default Register;
+export default ForgotPassword;
