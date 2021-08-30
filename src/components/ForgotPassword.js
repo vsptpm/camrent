@@ -1,10 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React, {  useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { Link } from "react-router-dom"
+import TextField from '@material-ui/core/TextField'; 
+import "./ForgotPaassword.css"
+
 
 function ForgotPassword() {
-    const emailRef = useRef()
+
     const { resetPassword } = useAuth()
+    const [email, setEmail] = useState('');
     const [error, setError] = useState('')
     const [message, setMessage] = useState('')
     const [loading, setLoading] = useState(false)
@@ -17,10 +21,10 @@ function ForgotPassword() {
           setError("")
           setMessage('')
           setLoading(true)
-          await resetPassword(emailRef.current.value)
+          await resetPassword(email)
           setMessage("Check your inbox for further instructions")
         } catch {
-          setError("Failed to reset password ")
+          setError("No account associated with this email")
         }
     
         setLoading(false)
@@ -29,18 +33,24 @@ function ForgotPassword() {
     return (
         <div>
             <div >
-            <h3>Reset password</h3>
-            <div className="LoginInput">
+            <div className="container">
+                <h1>Reset password</h1>
                 {error && <p>{error}</p>}
                 {message && <p>{message}</p>}
                 <form onSubmit = {handleSubmit}>
-                <span>Email</span><br />
-                <input placeholder="Enter email" id="email" ref={emailRef} type="text"></input><br /> 
-    
-                <button disabled = {loading} type="submit">Reset Password</button>
+
+                  <TextField 
+                      className="input-field"  
+                      label="Email"  
+                      onChange={(e) => setEmail(e.target.value)}
+                      variant="outlined" 
+                    />
+                  <br/>
+
+                  <button disabled = {loading} type="submit" className="reset-button" >Reset Password</button>
                 </form>
-                <Link to="/login">Log In</Link><br></br>
-                Need an account? <Link to="/register">Register Here</Link>
+                <Link to="/login" className="link">Log In</Link><br></br>
+                Need an account? <Link to="/register" className="link">Register Here</Link>
                 
             </div>
         </div>

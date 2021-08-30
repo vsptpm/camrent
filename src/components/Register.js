@@ -1,12 +1,18 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { Link, useHistory } from "react-router-dom"
+import TextField from '@material-ui/core/TextField'; 
+import handCameraVector from "../assets/handCameraVector.png"
+import "./Register.css"  
 
 function Register() {
-    const nameRef = useRef()
-    const emailRef = useRef()
-    const passwordRef = useRef()
-    const passwordConfirmRef = useRef()
+  
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+
     const { register } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -16,14 +22,14 @@ function Register() {
     async function handleSubmit(e) {
         e.preventDefault()
     
-        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+        if (password !== confirmPassword) {
           return setError("Passwords do not match")
         }
     
         try {
           setError("")
           setLoading(true)
-          await register(emailRef.current.value, passwordRef.current.value)
+          await register(email, password)
           history.push("/dashboard")
 
         } catch {
@@ -36,24 +42,55 @@ function Register() {
     return (
         <div>
             <div >
-            <h3>Register</h3>
-            <div className="RegisterInput">
+            <div className="container">
+                <h1>Register</h1>
                 {error && <p>{error}</p>}
                 <form onSubmit = {handleSubmit}>
-                <span>Full Name</span><br />
-                <input placeholder="Enter name" id="name" ref={nameRef} type="text"></input><br /> 
-                <span>Email</span><br />
-                <input placeholder="Enter email" id="email" ref={emailRef} type="text"></input><br /> 
-                <span>Password</span><br />
-                <input placeholder="Enter password" id="password" ref={passwordRef} type="password"></input><br />
-                <span>Confirm Password</span><br />
-                <input placeholder="Enter password" id="password-confirm" ref={passwordConfirmRef} type="password"></input><br />
-                <button disabled = {loading} type="submit">Register</button>
+                  <div className="input-fields">
+
+                    <TextField 
+                        className="input-field" 
+                        id="outlined-basic" 
+                        label="Full Name"  
+                        onChange={(e) => setUsername(e.target.value)}
+                        variant="outlined" 
+                      />
+                    <br/>
+                    <TextField 
+                      className="input-field" 
+                      id="outlined-basic" 
+                      label="Email" 
+                      onChange={(e) => setEmail(e.target.value)}
+                      variant="outlined"
+                      />
+                    <br/>
+                    <TextField 
+                      className="input-field" 
+                      id="outlined-basic" 
+                      label="Password" 
+                      onChange={(e) => setPassword(e.target.value)}  
+                      type="password" 
+                      variant="outlined" 
+                    />
+                    <br/>
+                    <TextField 
+                      className="input-field" 
+                      id="outlined-basic" 
+                      label="Confirm Password" 
+                      onChange={(e) => setConfirmPassword(e.target.value)} 
+                      type="password"  
+                      variant="outlined" 
+                    />
+                    <br/>
+                  </div>
+                <button disabled = {loading} type="submit"className="register-button">Register</button>
                 </form>
                 
-                Already have an account? <Link to="/login">Log In </Link>
+                Already have an account? <Link to="/login" className="link">Log In </Link>
                 
+            <img src={handCameraVector} className="hand-camera" alt="handCameraVector" />
             </div>
+
         </div>
         </div>
     )

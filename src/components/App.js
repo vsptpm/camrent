@@ -19,7 +19,6 @@ function App() {
               <Route path="/login" component={Login}/>
               <PrivateRoute path="/dashboard" component={Dashboard}/>
               <Route path="/forgot-password" component={ForgotPassword}/>
-
             </Switch>
           </AuthProvider>
         </Router>

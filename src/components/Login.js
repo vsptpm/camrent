@@ -1,14 +1,22 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { Link, useHistory } from "react-router-dom"
+import TextField from '@material-ui/core/TextField'; 
+import handCameraVector from "../assets/handCameraVector.png"
+import "./Login.css"   
+
+
 
 function Register() {
-    const emailRef = useRef()
-    const passwordRef = useRef()
+
     const { login } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -16,7 +24,7 @@ function Register() {
         try {
           setError("")
           setLoading(true)
-          await login(emailRef.current.value, passwordRef.current.value)
+          await login(email, password)
           history.push("/dashboard")
         } catch {
           setError("Failed to Login in")
@@ -27,23 +35,36 @@ function Register() {
     
     return (
         <div>
-            <div >
-            <h3>Login</h3>
-            <div className="LoginInput">
+           
+
+            <div className="container">
+                <h1>Login</h1>
                 {error && <p>{error}</p>}
-                <form onSubmit = {handleSubmit}>
-                <span>Email</span><br />
-                <input placeholder="Enter email" id="email" ref={emailRef} type="text"></input><br /> 
-                <span>Password</span><br />
-                <input placeholder="Enter password" id="password" ref={passwordRef} type="password"></input><br />
-        
-                <button disabled = {loading} type="submit">Log In</button>
+                <form onSubmit = {handleSubmit} className="login-input">
+            
+                  <TextField 
+                    className="input-field"  
+                    label="Email"  
+                    onChange={(e) => setEmail(e.target.value)}
+                    variant="outlined" 
+                  />
+                  <br/>
+                  <TextField 
+                    className="input-field"  
+                    label="Password"  
+                    onChange={(e) => setPassword(e.target.value)}  
+                    type="password" 
+                    variant="outlined" 
+                  />
+                  <br/>
+                  <button disabled = {loading} type="submit" className="login-button">Log In</button>
                 </form>
-                <Link to="/forgot-password">Forgot Password?</Link><br></br>
-                Need an account? <Link to="/register">Register Here</Link>
-                
-            </div>
-        </div>
+                <Link to="/forgot-password" className="link">Forgot Password?</Link><br></br>
+                Need an account? <Link to="/register" className="link">Register Here</Link>
+                <img src={handCameraVector} className="hand-camera" alt="handCameraVector" />
+
+ 
+             </div>
         </div>
     )
 }

@@ -1,32 +1,31 @@
 *{
+    margin: 0;
     font-family: 'Nunito', sans-serif;
+
+}
+h1{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .container{
     height: 100vh;
     display: flex;
-    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
 }
-h1 {
-    margin-top: 65px;
+.link{
+    text-decoration: none;
+    color: #FF6737;
 }
-
-.hand-camera{
-position: relative;
-height: 25vh;
-top: auto;
-left: auto;
-
+.input-field{
+    width: 303px;
 }
-
-.welcome-content{
-    max-width: 457px;
-    margin: 0 10px 10px 15px;
-    
+.input-fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-p{
-    margin: 5px;
-}
-.login-button{
+.register-button{
     display: flex;
     justify-content: space-around;
     background-color: #FF6737;
@@ -34,11 +33,18 @@ p{
     align-items: center;
     width: 303px;
     height: 48px;
+    border: none;
     -webkit-box-shadow: inset 0px 4px 4px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: inset 0px 4px 4px 0px rgba(0,0,0,0.25);
     box-shadow: inset 0px 4px 4px 0px rgba(0,0,0,0.25);
     text-decoration: none;
     color: white;
     font-family: 'Nunito', sans-serif;
-
+    cursor:pointer;
+    margin-bottom: 10px;
 }
+.hand-camera{
+    position: absolute;
+    height: 30vh;
+    left: auto;
+    }
