@@ -1,0 +1,12 @@
+
+.post-items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.dashboard{
+    margin-top: 80px;
+    position: absolute;
+    z-index: -1;
+}

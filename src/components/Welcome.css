@@ -23,7 +23,7 @@ left: auto;
     margin: 0 10px 10px 15px;
     
 }
-p{
+.helper-text{
     margin: 5px;
 }
 .login-button{

@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { Link, useHistory } from "react-router-dom"
+
+import { makeStyles } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert';
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import Button from '@material-ui/core/Button';
+import CloseIcon from '@material-ui/icons/Close';
+
 import TextField from '@material-ui/core/TextField'; 
 import handCameraVector from "../assets/handCameraVector.png"
 import "./Register.css"  
@@ -11,6 +19,18 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: '303px',
+      '& > * + *': {
+        marginTop: theme.spacing(2),
+      },
+    },
+  }));
+  const classes = useStyles();
+  const [open, setOpen] = useState(true);
+
 
 
     const { register } = useAuth()
@@ -34,6 +54,7 @@ function Register() {
 
         } catch {
           setError("Failed to create an account")
+          setOpen(true)
         }
     
         setLoading(false)
@@ -44,7 +65,27 @@ function Register() {
             <div >
             <div className="container">
                 <h1>Register</h1>
-                {error && <p>{error}</p>}
+                {error && 
+                  <div className={classes.root}>
+                    <Collapse in={open}>
+                    <Alert severity="warning"  
+                        action={
+                          <IconButton
+                            color="inherit"
+                            size="small"
+                            onClick={() => {
+                              setOpen(false);
+                            }} 
+                          >
+                            <CloseIcon fontSize="inherit" />
+                          </IconButton>
+                        }>
+                      <strong>{error}</strong>
+                    </Alert>
+                    </Collapse>
+              
+                  </div>
+                }
                 <form onSubmit = {handleSubmit}>
                   <div className="input-fields">
 

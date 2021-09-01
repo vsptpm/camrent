@@ -1,7 +1,15 @@
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { Link, useHistory } from "react-router-dom"
-import TextField from '@material-ui/core/TextField'; 
+
+import { makeStyles } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert';
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import Button from '@material-ui/core/Button';
+import CloseIcon from '@material-ui/icons/Close';
+import TextField from '@material-ui/core/TextField' 
+
 import handCameraVector from "../assets/handCameraVector.png"
 import "./Login.css"   
 
@@ -14,6 +22,18 @@ function Register() {
     const [loading, setLoading] = useState(false)
     const history = useHistory()
     
+    const useStyles = makeStyles((theme) => ({
+      root: {
+        width: '303px',
+        '& > * + *': {
+          marginTop: theme.spacing(2),
+        },
+      },
+    }));
+    const classes = useStyles();
+    const [open, setOpen] = useState(true);
+
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
@@ -27,7 +47,8 @@ function Register() {
           await login(email, password)
           history.push("/dashboard")
         } catch {
-          setError("Failed to Login in")
+          setError("Incorrect Email or Password")
+          setOpen(true)
         }
     
         setLoading(false)
@@ -35,11 +56,29 @@ function Register() {
     
     return (
         <div>
-           
-
             <div className="container">
                 <h1>Login</h1>
-                {error && <p>{error}</p>}
+                {error && 
+                  <div className={classes.root}>
+                    <Collapse in={open}>
+                    <Alert severity="warning"  
+                        action={
+                          <IconButton
+                            color="inherit"
+                            size="small"
+                            onClick={() => {
+                              setOpen(false);
+                            }} 
+                          >
+                            <CloseIcon fontSize="inherit" />
+                          </IconButton>
+                        }>
+                      <strong>{error}</strong>
+                    </Alert>
+                    </Collapse>
+              
+                  </div>
+                }
                 <form onSubmit = {handleSubmit} className="login-input">
             
                   <TextField 

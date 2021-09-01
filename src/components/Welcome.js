@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import "../components/Welcome.css";
-import handCameraVector from "../assets/handCameraVector.png"
+import handCameraVector from "../assets/handCameraVector.png";
 
 
 function Welcome() {
@@ -16,14 +16,14 @@ function Welcome() {
                 There will be no more excuses when it comes to gears.
             </p>
             <br/>
-            <p>Existing User ?</p>
+            <p className="helper-text">Existing User ?</p>
             <Link to='/login' className="login-button">
                 <div className="login-button">
                     Login
                 </div>
             </Link>
 
-            <p>New Here ?</p>
+            <p className="helper-text">New Here ?</p>
             <Link to='/register' className="login-button">
                 <div className="login-button">
                 Register

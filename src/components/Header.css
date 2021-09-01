@@ -1,0 +1,29 @@
+.header{
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #FF6737;
+    position: fixed;
+    -webkit-box-shadow: 3px 10px 35px -7px rgba(0,0,0,0.39);
+    -moz-box-shadow: 3px 10px 35px -7px rgba(0,0,0,0.39);
+    box-shadow: 3px 10px 35px -7px rgba(0,0,0,0.39);
+    color: white;
+    justify-content: space-between;
+}
+
+
+.header-left{
+    
+    display: flex;
+    align-items: center;
+}
+.header-left > h2{
+    margin-left: 5px;
+}
+.header-right{
+    display: flex;
+    align-items: center;
+    
+}
