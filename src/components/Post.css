@@ -1,3 +1,6 @@
+*{
+    text-decoration: none;
+}
 .post-container{
     /* max-width: 400px; */
     width: 300px;
@@ -35,11 +38,18 @@
 .post-image > img{
    width: 140px;
    padding: 10px;
+   align-items: center;
+   object-fit: cover;
 }
 .post-contents{
     margin: 15px;
     display: flex;
     flex-direction: column;    
+    color: black;
+
+}
+.post-title{
+    color: black;      
 }
 .post-category {
     font-size: .75rem;

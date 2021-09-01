@@ -23,7 +23,13 @@
     margin-left: 5px;
 }
 .header-right{
+    width: 150px;
+    justify-content: space-evenly;
     display: flex;
     align-items: center;
+    padding: 15px;
     
+}
+.logout-button ,.cart-button, .profile-button{
+    cursor: pointer;
 }

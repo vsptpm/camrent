@@ -7,6 +7,7 @@ import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 import PrivateRoute from './PrivateRoute';
 import ForgotPassword from './ForgotPassword';
+import ProductPage from './ProductPage';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
               <Route path="/login" component={Login}/>
               <PrivateRoute path="/dashboard" component={Dashboard}/>
               <Route path="/forgot-password" component={ForgotPassword}/>
+              <Route path="/product/:id" component={ProductPage}/>
+
             </Switch>
           </AuthProvider>
         </Router>

@@ -2,12 +2,16 @@ import React, { useState }  from 'react'
 import "./Header.css"
 import {Link, useHistory} from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 function Header() {
-    const { currentUser, logout } = useAuth()
+    const { logout } = useAuth()
     const [error, setError] = useState('')
     const history = useHistory()
 
@@ -18,6 +22,7 @@ function Header() {
             history.push('/login')
         }catch{
             setError("Failed to logout")
+            console.log(error);
         }
     }
     return (
@@ -27,9 +32,15 @@ function Header() {
                 <h2>CamRent</h2>
             </div>
             <div className="header-right">
-                <AccountCircleIcon/>
-                {currentUser.email}
-                <ExitToAppIcon onClick={handleLogout}/>
+                <Tooltip title="Cart">    
+                    <ShoppingCartIcon className="cart-button"/>
+                </Tooltip>
+                <Tooltip title="Profile">   
+                    <AccountCircleIcon className="profile-button"/> 
+                </Tooltip>
+                <Tooltip title="Log out">      
+                    <ExitToAppIcon className="logout-button" onClick={handleLogout}/>
+                </Tooltip>
 
             </div>
 
