@@ -10,9 +10,9 @@ function Welcome() {
         <div> 
             <div className="container">
 
-            <h1 className="welcome-heading">Welcome Dreamers !</h1>
+                <h1 className="welcome-heading">Welcome Dreamers !</h1>
 
-            <p className="welcome-content"> 
+                <p className="welcome-content"> 
                     We're striving to aid creative brains in obtaining the necessary 
                     equipment to begin putting their ideas into action. 
                     There will be no more excuses when it comes to gears.

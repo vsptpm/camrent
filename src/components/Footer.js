@@ -4,7 +4,7 @@ import CopyrightIcon from '@material-ui/icons/Copyright';
 
 function Footer() {
     return (
-        <div>
+        
             <div className="footer">
                 <div className="footer-contents">      
                     <p>About</p>
@@ -17,7 +17,7 @@ function Footer() {
                 </div>
 
             </div>
-        </div>
+        
     )
 }
 

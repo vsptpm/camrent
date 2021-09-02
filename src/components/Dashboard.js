@@ -9,8 +9,8 @@ import Footer from './Footer'
 function Dashboard() {
     return (
         <div>
-            <Header/>
             <div className="dashboard"> 
+                <Header/>
                 <div className="post-items">
                     <Post  
                         imageUrl="https://m.media-amazon.com/images/I/914hFeTU2-L._SL1500_.jpg" 
@@ -97,8 +97,12 @@ function Dashboard() {
                         location="Kollam,Kerala"
                     />
                 </div>
-            <Footer/>
+                <div className="footer-component">
+
+                <Footer />
+                </div>
             </div>
+            
         </div>
     )
 }
