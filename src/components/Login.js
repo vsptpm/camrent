@@ -12,6 +12,7 @@ import TextField from '@material-ui/core/TextField'
 
 import handCameraVector from "../assets/handCameraVector.png"
 import "./Login.css"   
+import Footer from './Footer';
 
 
 
@@ -104,6 +105,7 @@ function Register() {
 
  
              </div>
+             <Footer/>
         </div>
     )
 }

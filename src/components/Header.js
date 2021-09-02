@@ -6,7 +6,12 @@ import { useAuth } from '../context/AuthContext'
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
+import IconButton from '@material-ui/core/IconButton';
+import { red } from '@material-ui/core/colors';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
 import Tooltip from '@material-ui/core/Tooltip';
 
 
@@ -30,6 +35,16 @@ function Header() {
             <div className="header-left">
                 <MenuIcon/>
                 <h2>CamRent</h2>
+            </div>
+
+            <div className="header-center">
+                <InputBase
+                    placeholder="Search"
+                    style={{ color: red[50] }}
+                />
+                <IconButton type="submit" aria-label="search">
+                    <SearchIcon style={{ color: red[50] }}/>
+                </IconButton>
             </div>
             <div className="header-right">
                 <Tooltip title="Cart">    

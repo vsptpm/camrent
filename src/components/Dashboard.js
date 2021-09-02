@@ -1,15 +1,15 @@
 import React from 'react'
-import { useAuth } from '../context/AuthContext'
 import {Link, useHistory} from 'react-router-dom'
 import Post from './Post'
 import "./Dashboard.css"
 import Header from './Header'
+import Footer from './Footer'
 
 
 function Dashboard() {
     return (
         <div>
-                <Header/>
+            <Header/>
             <div className="dashboard"> 
                 <div className="post-items">
                     <Post  
@@ -97,6 +97,7 @@ function Dashboard() {
                         location="Kollam,Kerala"
                     />
                 </div>
+            <Footer/>
             </div>
         </div>
     )

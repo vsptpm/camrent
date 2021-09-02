@@ -33,3 +33,7 @@
 .logout-button ,.cart-button, .profile-button{
     cursor: pointer;
 }
+.header-center{
+    display: flex;
+    margin-left: 10px;
+}

@@ -12,6 +12,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@material-ui/core/TextField'; 
 import handCameraVector from "../assets/handCameraVector.png"
 import "./Register.css"  
+import Footer from './Footer';
 
 function Register() {
   
@@ -112,6 +113,8 @@ function Register() {
                       onChange={(e) => setPassword(e.target.value)}  
                       type="password" 
                       variant="outlined" 
+                      helperText="Use at least 8 characters and combination of letters and numbers."
+                      
                     />
                     <br/>
                     <TextField 
@@ -133,6 +136,7 @@ function Register() {
             </div>
 
         </div>
+        <Footer/>
         </div>
     )
 }

@@ -20,7 +20,7 @@ function App() {
               <Route path="/login" component={Login}/>
               <PrivateRoute path="/dashboard" component={Dashboard}/>
               <Route path="/forgot-password" component={ForgotPassword}/>
-              <Route path="/product/:id" component={ProductPage}/>
+              <Route path="/product/:title" component={ProductPage}/>
 
             </Switch>
           </AuthProvider>

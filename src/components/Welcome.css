@@ -4,10 +4,10 @@
 .container{
     height: 100vh;
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 h1 {
-    margin-top: 65px;
+    margin-top: 40px;
 }
 
 .hand-camera{
