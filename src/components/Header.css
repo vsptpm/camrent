@@ -27,10 +27,12 @@
     justify-content: space-evenly;
     display: flex;
     align-items: center;
-    padding: 15px;
+
     
 }
 .logout-button ,.cart-button, .profile-button{
+    color: white;
+    text-decoration: none;
     cursor: pointer;
 }
 .header-center{

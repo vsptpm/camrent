@@ -33,11 +33,11 @@ function Header() {
     return (
         <div className="header">
             <div className="header-left">
-                <MenuIcon/>
+                {/* <MenuIcon/> */}
                 <h2>CamRent</h2>
             </div>
 
-            <div className="header-center">
+            {/* <div className="header-center">
                 <InputBase
                     placeholder="Search"
                     style={{ color: red[50] }}
@@ -45,14 +45,16 @@ function Header() {
                 <IconButton type="submit" aria-label="search">
                     <SearchIcon style={{ color: red[50] }}/>
                 </IconButton>
-            </div>
+            </div> */}
             <div className="header-right">
                 <Tooltip title="Cart">    
                     <ShoppingCartIcon className="cart-button"/>
                 </Tooltip>
-                <Tooltip title="Profile">   
-                    <AccountCircleIcon className="profile-button"/> 
-                </Tooltip>
+                <Link to="/profile">
+                    <Tooltip title="Profile">   
+                        <AccountCircleIcon className="profile-button"/> 
+                    </Tooltip>
+                </Link>
                 <Tooltip title="Log out">      
                     <ExitToAppIcon className="logout-button" onClick={handleLogout}/>
                 </Tooltip>

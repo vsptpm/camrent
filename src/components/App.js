@@ -8,6 +8,8 @@ import Dashboard from './Dashboard';
 import PrivateRoute from './PrivateRoute';
 import ForgotPassword from './ForgotPassword';
 import ProductPage from './ProductPage';
+import SelectionPage from './SelectionPage';
+import Profile from './Profile';
 
 function App() {
   return (
@@ -21,6 +23,9 @@ function App() {
               <PrivateRoute path="/dashboard" component={Dashboard}/>
               <Route path="/forgot-password" component={ForgotPassword}/>
               <Route path="/product/:title" component={ProductPage}/>
+              <Route path="/select" component={SelectionPage}/>
+              <Route path="/profile" component={Profile}/>
+
 
             </Switch>
           </AuthProvider>

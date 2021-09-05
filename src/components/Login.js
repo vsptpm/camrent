@@ -46,7 +46,7 @@ function Register() {
           setError("")
           setLoading(true)
           await login(email, password)
-          history.push("/dashboard")
+          history.push("/select")
         } catch {
           setError("Incorrect Email or Password")
           setOpen(true)

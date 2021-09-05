@@ -11,6 +11,7 @@ function Dashboard() {
         <div>
             <div className="dashboard"> 
                 <Header/>
+                
                 <div className="post-items">
                     <Post  
                         imageUrl="https://m.media-amazon.com/images/I/914hFeTU2-L._SL1500_.jpg" 

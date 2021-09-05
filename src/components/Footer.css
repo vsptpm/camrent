@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  
     z-index: -10;
     width: 100%;
     height: 60px;
+    
     -webkit-box-shadow: 3px 10px 35px -7px rgba(0,0,0,0.39);
     -moz-box-shadow: 3px 10px 35px -7px rgba(0,0,0,0.39);
     box-shadow: 3px 10px 35px -7px rgba(0,0,0,0.39);
