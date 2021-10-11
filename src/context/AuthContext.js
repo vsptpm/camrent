@@ -13,8 +13,15 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true)
 
 
-    function register(email, password){
+    function register(email, password, displayName){
         return auth.createUserWithEmailAndPassword(email, password)
+        .then((res) => {
+            const user = auth.currentUser;
+            return user.updateProfile({
+              displayName: displayName
+            })
+          })
+        
     }
     function login(email, password){
         return auth.signInWithEmailAndPassword(email, password)

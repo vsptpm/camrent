@@ -10,6 +10,7 @@ import ForgotPassword from './ForgotPassword';
 import ProductPage from './ProductPage';
 import SelectionPage from './SelectionPage';
 import Profile from './Profile';
+import PostAd from './PostAd';
 
 function App() {
   return (
@@ -22,9 +23,11 @@ function App() {
               <Route path="/login" component={Login}/>
               <PrivateRoute path="/dashboard" component={Dashboard}/>
               <Route path="/forgot-password" component={ForgotPassword}/>
-              <Route path="/product/:title" component={ProductPage}/>
+              <Route path="/product/:postId" component={ProductPage}/>
               <Route path="/select" component={SelectionPage}/>
               <Route path="/profile" component={Profile}/>
+              <Route path="/postad" component={PostAd}/>
+
 
 
             </Switch>

@@ -50,7 +50,7 @@ function Register() {
         try {
           setError("")
           setLoading(true)
-          await register(email, password)
+          await register(email, password, username)
           history.push("/dashboard")
 
         } catch {

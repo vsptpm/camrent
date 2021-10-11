@@ -1,0 +1,40 @@
+.ImageUpload{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 90%; 
+    object-fit: contain;
+    margin: 20px;
+    margin-top: 50px;
+}
+.imageUpload__progress::-webkit-progress-bar{
+    width: 100%;
+    border: 0px;
+    background-color: orange;
+}
+.imageUpload__select::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.upload-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+}
+.imageupload__button{
+        display: flex;
+        justify-content: space-around;
+        background-color: #FF6737;
+        border-radius: 30px;
+        align-items: center;
+        width: 303px;
+        height: 48px;
+        border: none;
+        -webkit-box-shadow: inset 0px 4px 4px 0px rgba(0,0,0,0.25);
+        -moz-box-shadow: inset 0px 4px 4px 0px rgba(0,0,0,0.25);
+        box-shadow: inset 0px 4px 4px 0px rgba(0,0,0,0.25);
+        text-decoration: none;
+        color: white;
+        font-family: 'Nunito', sans-serif;
+        cursor:pointer;
+    }

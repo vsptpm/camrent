@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import "./Post.css"
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 
-function Post({imageUrl, title, category,rental, location}) {
+function Post({ title, imageUrl, displayName, rental, productId}) {
 
     return (
         <div className="post-container">
@@ -13,18 +13,18 @@ function Post({imageUrl, title, category,rental, location}) {
                 {/* <p className="post-avaialability"> Available</p> */}
             </div>
             <div className="post-contents">
-                <Link to={`/product/${title}`}>
+                <Link to={`/product/${productId}`}>
                     <div className="post-title">
                         <h3> {title} </h3>    
                     </div>
                 </Link>
             
-                <p className="post-category">{category}</p>
+                <p className="post-category">{displayName}</p>
                 <h4 className="post-rental ">Rs.{rental}/Day</h4>
-                <div className="post-location">
+                {/* <div className="post-location">
                     <LocationOnIcon fontSize="small"/>
                     <p className="post-location-text">{location}</p>
-                </div>
+                </div> */}
                 <button className="login-button post">Add to Cart</button>
             </div>
         </div>

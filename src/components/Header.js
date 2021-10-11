@@ -17,6 +17,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 function Header() {
     const { logout } = useAuth()
+    const { currentUser } = useAuth()
+    // console.log(currentUser.displayName);
     const [error, setError] = useState('')
     const history = useHistory()
 
@@ -34,7 +36,7 @@ function Header() {
         <div className="header">
             <div className="header-left">
                 {/* <MenuIcon/> */}
-                <h2>CamRent</h2>
+                <h2>Cam For Me</h2>
             </div>
 
             {/* <div className="header-center">
@@ -50,10 +52,12 @@ function Header() {
                 <Tooltip title="Cart">    
                     <ShoppingCartIcon className="cart-button"/>
                 </Tooltip>
+                <span className="cart-items">0</span>
                 <Link to="/profile">
                     <Tooltip title="Profile">   
                         <AccountCircleIcon className="profile-button"/> 
                     </Tooltip>
+                    <span className="profile-name">{currentUser.displayName}</span>
                 </Link>
                 <Tooltip title="Log out">      
                     <ExitToAppIcon className="logout-button" onClick={handleLogout}/>

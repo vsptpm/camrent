@@ -30,6 +30,11 @@
 
     
 }
+.profile-name{
+    font-size: 13px;
+  /* font-weight: 800; */
+    color: white;
+}
 .logout-button ,.cart-button, .profile-button{
     color: white;
     text-decoration: none;

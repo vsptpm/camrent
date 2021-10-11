@@ -20,7 +20,7 @@ function Register() {
 
     const { login } = useAuth()
     const [error, setError] = useState('')
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const history = useHistory()
     
     const useStyles = makeStyles((theme) => ({
@@ -97,7 +97,7 @@ function Register() {
                     variant="outlined" 
                   />
                   <br/>
-                  <button disabled = {loading} type="submit" className="login-button">Log In</button>
+                  <button type="submit" className="login-button">Log In</button>
                 </form>
                 <Link to="/forgot-password" className="link">Forgot Password?</Link><br></br>
                 Need an account? <Link to="/register" className="link">Register Here</Link>
