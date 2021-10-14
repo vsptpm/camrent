@@ -15,11 +15,13 @@
 
 
 .header-left{
-    
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
-.header-left > h2{
+.link-home{
+    text-decoration: none;
+    color: white;   
     margin-left: 5px;
 }
 .header-right{
@@ -29,6 +31,11 @@
     align-items: center;
 
     
+}
+.profile{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 .profile-name{
     font-size: 13px;

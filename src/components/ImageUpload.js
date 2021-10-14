@@ -14,7 +14,7 @@ function ImageUpload() {
     const storage = getStorage();
     const { currentUser } = useAuth()
     const [image,setImage] = useState(null);
-    const [progress, setProgress] = useState(50);
+    const [progress, setProgress] = useState(0);
     const [title, setTitle] = useState('');
     const [description,setDescription] = useState('');
     const [price, setPrice] = useState('');

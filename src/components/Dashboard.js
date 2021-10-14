@@ -11,6 +11,7 @@ import Footer from './Footer'
 function Dashboard() {
     const [posts, setPosts] = useState([]);
     const { currentUser } = useAuth()
+    const [cartItems, setCartItems] = useState(0);
     useEffect(() => {
         
         db.collection('posts').orderBy('timestamp','desc').onSnapshot(snapshot => {
@@ -23,7 +24,7 @@ function Dashboard() {
     return (
         <div>
             <div className="dashboard"> 
-                <Header/>
+                <Header cartItems = {cartItems}/>
                 
                 <div className="post-items">
                     {

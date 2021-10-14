@@ -3,9 +3,22 @@ import { Link } from "react-router-dom"
 
 import "./Post.css"
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import { useStateValue } from '../context/StateContext';
 
 function Post({ title, imageUrl, displayName, rental, productId}) {
-
+    const [{basket}, dispatch] = useStateValue();
+    // console.log("basket",basket);
+    const addToBasket= ()=>{
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            item:{
+                id: productId,
+                title: title,
+                imageUrl: imageUrl,
+                price: rental,
+            }
+        })
+    }
     return (
         <div className="post-container">
             <div className="post-image">
@@ -25,7 +38,7 @@ function Post({ title, imageUrl, displayName, rental, productId}) {
                     <LocationOnIcon fontSize="small"/>
                     <p className="post-location-text">{location}</p>
                 </div> */}
-                <button className="login-button post">Add to Cart</button>
+                <button className="login-button post" onClick={addToBasket}>Add to Cart</button>
             </div>
         </div>
     )

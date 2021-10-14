@@ -13,14 +13,16 @@ import { red } from '@material-ui/core/colors';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 import Tooltip from '@material-ui/core/Tooltip';
+import { useStateValue } from '../context/StateContext';
 
 
-function Header() {
+function Header(props) {
     const { logout } = useAuth()
     const { currentUser } = useAuth()
-    // console.log(currentUser.displayName);
+    
     const [error, setError] = useState('')
     const history = useHistory()
+    const [{ basket }, dispatch] = useStateValue();
 
     async function handleLogout(){
         setError("")
@@ -36,7 +38,9 @@ function Header() {
         <div className="header">
             <div className="header-left">
                 {/* <MenuIcon/> */}
-                <h2>Cam For Me</h2>
+                <Link to="/select">
+                    <h2 className="link-home"> Cam For Me</h2>
+                </Link>
             </div>
 
             {/* <div className="header-center">
@@ -49,15 +53,19 @@ function Header() {
                 </IconButton>
             </div> */}
             <div className="header-right">
-                <Tooltip title="Cart">    
-                    <ShoppingCartIcon className="cart-button"/>
-                </Tooltip>
-                <span className="cart-items">0</span>
-                <Link to="/profile">
-                    <Tooltip title="Profile">   
-                        <AccountCircleIcon className="profile-button"/> 
+                <Link to="/checkout">
+                    <Tooltip title="Cart">    
+                        <ShoppingCartIcon className="cart-button"/>
                     </Tooltip>
-                    <span className="profile-name">{currentUser.displayName}</span>
+                </Link>
+                <span className="cart-items">{basket?.length}</span>
+                <Link to="/profile">
+                    <div className="profile">
+                        <Tooltip title="Profile">   
+                            <AccountCircleIcon className="profile-button"/> 
+                        </Tooltip>
+                        <span className="profile-name">{currentUser.displayName}</span>
+                    </div>
                 </Link>
                 <Tooltip title="Log out">      
                     <ExitToAppIcon className="logout-button" onClick={handleLogout}/>
