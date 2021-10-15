@@ -27,7 +27,14 @@ function Checkout() {
                     thousandSeparator={true}
                     prefix={"₹"}
                 />
-                <CheckOutList/>
+                {basket.map(item => (
+                    <CheckOutList
+                        id={item.id}
+                        title={item.title}
+                        image={item.imageUrl}
+                        price={item.price}
+                    />
+                ))}
             </div>
         </div>
     )
